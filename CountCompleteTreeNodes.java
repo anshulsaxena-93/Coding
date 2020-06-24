@@ -33,6 +33,10 @@ Output: 6
  *     }
  * }
  */
+
+/*
+  Time Complexity (logN * logN)
+*/
 class Solution {
     public int countNodes(TreeNode root) {
         return count(root);
@@ -44,6 +48,7 @@ class Solution {
             return 0;
         }
         
+        //count extreme left depth
         int leftDepth = 0;
         TreeNode leftNode = root;
         while(leftNode != null){
@@ -51,6 +56,7 @@ class Solution {
             leftNode = leftNode.left;
         }
         
+        //count extreme right depth
         int rightDepth = 0;
         TreeNode rightNode = root;
         while(rightNode != null){
@@ -58,10 +64,12 @@ class Solution {
             rightNode = rightNode.right;
         }
         
+        //if both the depths are same then its a perfect binary tree, hence the nnumber of nodes = 2 ^ depth - 1;
         if(leftDepth == rightDepth){
             return (int)Math.pow(2,leftDepth) - 1;
         }
         
+        //coun the number of nodes in left subtree + right subtree + 1(for current node)
         return 1 + count(root.left) + count(root.right);
         
     }

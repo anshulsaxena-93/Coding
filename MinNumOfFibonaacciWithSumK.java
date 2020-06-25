@@ -39,6 +39,10 @@ public class Solution {
             
             if(sum >= fib.get(i)){
                 sum = sum - fib.get(i);
+                /*
+                  if we have to count unique number then declare HashSet and keeping adding numbers to set
+                  finally return size of set or in case of numbers set
+                */
                 count++;
             }
             else{

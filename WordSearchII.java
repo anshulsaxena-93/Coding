@@ -53,17 +53,21 @@ class Solution {
         
         char c = board[i][j];
         
+        //check if this cell is already visired or then there is no word starting at from this root of Trie Tree
         if(c == '*' || root.children[c - 'a'] == null){
             return;
         }
         
+        //make child as root
         root = root.children[c - 'a'];
         
+        //if we have found any word then add it to the list and also make it null so its not added again
         if(root.word != null){
             result.add(root.word);
             root.word = null;
         }
         
+        //Mark it as '*' so its not visited again
         board[i][j] = '*';
         
         if(i > 0) DFS(board,i-1,j,root,result);
@@ -71,6 +75,7 @@ class Solution {
         if(i < board.length - 1) DFS(board,i+1,j,root,result);
         if(j < board[0].length -1) DFS(board,i,j+1,root,result);
         
+        //After backtracking change it to original character
         board[i][j] = c;
         
     }

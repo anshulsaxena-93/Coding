@@ -129,7 +129,7 @@ public class Solution {
                         //ignore
                     }
                     else if(state[list.get(i)] == 2){
-                        return true;
+                        return true;  //cycle found (difference in result with UnDiretced graph)
                     }
                 }
               }

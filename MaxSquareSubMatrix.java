@@ -79,7 +79,7 @@ public class Solution {
             
             for(int j=0; j<arr.length; j++){
                 int width = nsr[j] - nsl[j] - 1;
-                if(width >= arr[j]){
+                if(width >= arr[j]){. //if width is greater or equal to height (then square of that height is possible)
                     int area = arr[j] * arr[j];
                     maxArea = Math.max(area,maxArea);
                 }

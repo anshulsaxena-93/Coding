@@ -53,8 +53,8 @@ public class Solution {
         int currrem = 0;
         for(int i=0; i<A.size(); i++){
             int rem = A.get(i) - B.get(i);
-            currrem += rem; //Add the remianing to current remaining
-            totalRem += rem; //keep increaind total remaining fuel
+            currrem += rem; //Add the remaining to current remaining
+            totalRem += rem; //keep increaing total remaining fuel
             if(currrem < 0){ //we cannot go to next station with fuel so change starting point to next index, reset the current remaining fuel
                 currrem = 0;
                 startIndex = i+1;

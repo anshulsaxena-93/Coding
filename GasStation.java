@@ -41,20 +41,27 @@ public class Solution {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int canCompleteCircuit(final List<Integer> A, final List<Integer> B) {
         
+        /*
+        1.choose your starting index as 0.
+        2.check if you can go to the next gas station with what fuel you get from your current gas station plus the fuel you saved in your journey so far.
+            a. if yes : go to next gas station and follow step 2 again.
+            b. if not : change your starting index to the gas station NEXT to your current gas station.
+        */   
+        
         int totalRem = 0;
         int startIndex = 0;
         int currrem = 0;
         for(int i=0; i<A.size(); i++){
             int rem = A.get(i) - B.get(i);
-            currrem += rem;
-            totalRem += rem;
-            if(currrem < 0){
+            currrem += rem; //Add the remianing to current remaining
+            totalRem += rem; //keep increaind total remaining fuel
+            if(currrem < 0){ //we cannot go to next station with fuel so change starting point to next index, reset the current remaining fuel
                 currrem = 0;
                 startIndex = i+1;
             }
         }
         
-        if(totalRem >= 0){
+        if(totalRem >= 0){ //if total remaining is GE 0 it means solution is possible and startIndex is our answer
             return startIndex;
         }
         else{

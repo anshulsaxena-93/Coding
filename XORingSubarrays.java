@@ -51,6 +51,10 @@ Explanation 2:
 public class Solution {
     public int solve(ArrayList<Integer> A) {
         
+        //Like any element ith index in array A will occur (i + 1) * (N - i) times.
+        //for even size array all elements will exist even times
+        //for odd size array elements at (i+1)-> odd index will exist odd times others exist even times
+     
         int result = 0;
         if(A.size() % 2 == 0){
             return 0;
